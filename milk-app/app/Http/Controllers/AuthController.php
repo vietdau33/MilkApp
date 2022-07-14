@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use App\Http\Services\AuthService;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Contracts\Foundation\Application;
@@ -23,11 +24,20 @@ class AuthController extends Controller
         if (AuthService::login($request)) {
             return redirect()->to(RouteServiceProvider::HOME);
         }
-        return redirect()->back()->with(['mgs_error' => 'Username or Password not correct!']);
+        session()->flash('mgs_error', 'Username or Password not correct!');
+        return redirect()->back()->withInput();
     }
 
     public function register(): Factory|View|Application
     {
         return view('auth.register');
+    }
+
+    public function registerPost(RegisterRequest $request): RedirectResponse
+    {
+        if (AuthService::register($request)) {
+            return redirect()->route('auth.login');
+        }
+        return back()->withInput();
     }
 }

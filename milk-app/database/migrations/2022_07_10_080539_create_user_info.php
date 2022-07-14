@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id')->index();
             $table->string('fullname')->nullable();
-            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamps();
         });
     }

@@ -15,16 +15,16 @@ class LoginRequest extends FormRequest
     {
         return [
             'username' => 'required',
-            'password' => 'required|regex:/^.{6,30}$/i'
+            'password' => 'required|string|min:5'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'username.required' => 'Username has required',
-            'password.required' => 'Password has required',
-            'password.regex' => 'Password must be between 6 and 30 characters',
+            'username.required' => 'Hãy nhập tên đăng nhập',
+            'password.required' => 'Hãy nhập mật khẩu',
+            'password.min' => 'Mật khẩu ít nhất là 5 ký tự',
         ];
     }
 }

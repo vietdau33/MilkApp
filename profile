@@ -22,3 +22,6 @@ cm(){
 push(){
     git push origin master
 }
+run_sass(){
+    sass -w milk-app/resources/scss:milk-app/public/css
+}

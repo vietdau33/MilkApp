@@ -40,6 +40,7 @@
 <script src="{{ asset('js/request.js') }}"></script>
 <script src="{{ asset('js/global.js') }}"></script>
 <script src="{{ asset('js/auth.js?i=' . time()) }}"></script>
+@include('show_mgs_notif')
 @yield('script')
 </body>
 </html>

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->tinyInteger('is_active')->default(1);
+            $table->string('role')->default('nomal')->comment('Only param: nomal, store, daily1, daily2, daily3, admin');
             $table->timestamps();
         });
     }
