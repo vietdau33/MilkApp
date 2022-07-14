@@ -33,6 +33,6 @@ class User extends Authenticatable
 
     public function info(): BelongsTo
     {
-        return $this->belongsTo(UserInfo::class, 'user_id');
+        return $this->belongsTo(UserInfo::class, 'id', 'user_id');
     }
 }
