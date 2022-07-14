@@ -25,4 +25,9 @@ class AuthController extends Controller
         }
         return redirect()->back()->with(['mgs_error' => 'Username or Password not correct!']);
     }
+
+    public function register(): Factory|View|Application
+    {
+        return view('auth.register');
+    }
 }
