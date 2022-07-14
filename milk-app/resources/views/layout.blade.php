@@ -38,6 +38,10 @@
                         <p class="m-0">Xin chào, khách hàng: <b>{{ user()->info->fullname }}</b></p>
                         <p class="m-0">Số điểm: <b>{{ user()->info->point }}</b></p>
                     </div>
+                @else
+                    <div class="text-right">
+                        <a class="btn btn-primary" href="{{ route('auth.login') }}">Đăng Nhập</a>
+                    </div>
                 @endif
             </div>
         </div>
